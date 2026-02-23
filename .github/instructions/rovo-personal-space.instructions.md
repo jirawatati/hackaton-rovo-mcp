@@ -27,6 +27,7 @@ This instruction scopes the Atlassian MCP integration to **only** the personal C
 3. **Do NOT** read, write, or search pages in any other Confluence space.
 4. **Do NOT** modify any Jira issues unless explicitly requested by the user.
 5. When creating or editing Confluence pages, always set `spaceId` to the personal space.
+6. **Always use Markdown format** when creating or updating pages — set `contentFormat` to `"markdown"` and write the body in standard Markdown (headings, tables, code blocks, etc.). **Never** use Confluence storage format (XHTML) or raw HTML.
 
 ---
 

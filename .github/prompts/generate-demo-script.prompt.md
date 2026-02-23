@@ -1,14 +1,16 @@
 ---
-description: สร้าง Demo Script สำหรับ Hackathon Presentation บน Confluence
-agent: agent
+description: "/demo" — สร้าง Demo Script สำหรับ Hackathon Presentation บน Confluence
+agent: สร้าง Demo Script บน Confluence สำหรับ Hackathon Presentation ครอบคลุมบทนำ setup live demo สรุปผล และ next steps
 tools:
   - mcp_atlassian-mcp_createConfluencePage
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate Hackathon Demo Script
+# `/demo` — Generate Hackathon Demo Script
 
 สร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Hackathon Demo Script"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## โครงสร้าง Demo
 
@@ -55,3 +57,9 @@ tools:
 ## Backup Plan
 
 ถ้า live demo มีปัญหา ให้เตรียม screenshots ของผลลัพธ์ไว้ล่วงหน้า
+
+## Format
+
+- **ใช้ Markdown เท่านั้น** — headings, bullet lists, checkboxes (`- [ ]`), bold
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
+- เขียนภาษาไทยปนอังกฤษ

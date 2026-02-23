@@ -1,5 +1,5 @@
 ---
-description: อัพเดท documentation บน Confluence ให้ตรงกับ code ปัจจุบัน
+description: "/sync" — อัพเดท documentation บน Confluence ให้ตรงกับ code ปัจจุบัน
 agent: ค้นหาหน้า Auto-Generated Code Documentation บน Confluence อ่าน source code ปัจจุบัน แล้วอัพเดทเนื้อหาให้ตรงกับ code ล่าสุด
 tools:
   - mcp_atlassian-mcp_searchConfluenceUsingCql
@@ -7,9 +7,11 @@ tools:
   - mcp_atlassian-mcp_updateConfluencePage
 ---
 
-# Update Documentation from Code Changes
+# `/sync` — Update Documentation from Code Changes
 
 อ่าน source code ทั้งหมดในโปรเจกต์นี้ แล้วอัพเดทหน้า **"Auto-Generated Code Documentation"** ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ให้ตรงกับ code ปัจจุบัน
+
+> **⚠️ Mandatory:** เมื่ออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## ขั้นตอน
 
@@ -28,6 +30,8 @@ tools:
 
 ## Format
 
+- **ใช้ Markdown เท่านั้น** — ต้องเขียน body เป็น Markdown
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `updateConfluencePage`
 - ใส่ "Last updated: {วันที่ปัจจุบัน}" ที่ด้านบนของหน้า
 - ใส่ changelog section สั้นๆ ว่าอัพเดทอะไรบ้าง
 - คงรูปแบบเดิมของ doc ไว้

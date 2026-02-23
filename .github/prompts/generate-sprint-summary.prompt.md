@@ -1,5 +1,5 @@
 ---
-description: ดึง Jira issues แล้วสร้างสรุป Sprint บน Confluence
+description: "/sprint" — ดึง Jira issues แล้วสร้างสรุป Sprint บน Confluence
 agent: ค้นหา Jira issues ที่ assign ให้ฉันในสัปดาห์นี้ จัดกลุ่มตาม status แล้วสร้าง Weekly Sprint Summary บน Confluence
 tools:
   - mcp_atlassian-mcp_searchJiraIssuesUsingJql
@@ -8,9 +8,11 @@ tools:
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate Sprint Summary from Jira
+# `/sprint` — Generate Sprint Summary from Jira
 
 ค้นหา Jira issues ที่ assign ให้ฉัน แล้วสร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Weekly Sprint Summary — {สัปดาห์ปัจจุบัน}"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## ขั้นตอน
 
@@ -45,7 +47,9 @@ tools:
 
 ## Format
 
+- **ใช้ Markdown เท่านั้น** — Markdown tables, headings, bold, links
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - ใช้ tables เป็นหลัก
-- ใส่ progress bar หรือ percentage
-- Link กลับไปหา Jira issue แต่ละตัว
+- ใส่ percentage สำหรับ progress
+- Link กลับไปหา Jira issue แต่ละตัว (`[KEY-123](url)`)
 - เขียนภาษาไทย

@@ -1,14 +1,16 @@
 ---
-description: Generate documentation จาก source code อัตโนมัติแล้วสร้างบน Confluence
+description: "/codedocs" — Generate documentation จาก source code อัตโนมัติแล้วสร้างบน Confluence
 agent: Scan source code ทั้งหมดในโปรเจกต์ วิเคราะห์โครงสร้าง config และไฟล์สำคัญ แล้วสร้าง Auto-Generated Code Documentation บน Confluence
 tools:
   - mcp_atlassian-mcp_createConfluencePage
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Auto-Generate Code Documentation
+# `/codedocs` — Auto-Generate Code Documentation
 
 อ่าน source code **ทั้งหมด**ในโปรเจกต์นี้ แล้วสร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Auto-Generated Code Documentation"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## ขั้นตอน
 
@@ -49,8 +51,9 @@ tools:
 
 ## Format
 
-- ใช้ collapsible sections สำหรับ code snippets ยาว
+- **ใช้ Markdown เท่านั้น** — tables, code blocks (` ```lang `), headings (`#`)
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - ใช้ tables สำหรับ file listings
-- ใส่ code blocks พร้อม syntax highlighting
+- ใส่ code blocks พร้อม syntax highlighting (` ```sql `, ` ```json `, etc.)
 - เขียนเป็นภาษาไทยปนอังกฤษ
 - ใส่ timestamp ที่ generated: วันที่ปัจจุบัน

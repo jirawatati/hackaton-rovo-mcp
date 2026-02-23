@@ -1,5 +1,5 @@
 ---
-description: สร้างหน้า Project Overview บน Confluence personal space
+description: "/overview" — สร้างหน้า Project Overview บน Confluence personal space
 agent: อ่านไฟล์ทั้งหมดในโปรเจกต์ แล้วสร้างหน้า Project Overview บน Confluence personal space พร้อมเนื้อหาเกี่ยวกับวัตถุประสงค์ สถาปัตยกรรม และวิธี setup
 tools:
   - mcp_atlassian-mcp_createConfluencePage
@@ -7,9 +7,11 @@ tools:
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate Project Overview on Confluence
+# `/overview` — Generate Project Overview on Confluence
 
 อ่านไฟล์ทั้งหมดในโปรเจกต์นี้ แล้วสร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Hackathon Rovo MCP — Project Overview"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## เนื้อหาที่ต้องมี
 
@@ -21,6 +23,7 @@ tools:
 
 ## Format
 
-- ใช้ Confluence-friendly formatting: headings (h1-h3), tables, bullet lists, code blocks
+- **ใช้ Markdown เท่านั้น** — headings (`#`, `##`, `###`), tables, bullet lists, code blocks (` ``` `)
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - เขียนเป็นภาษาไทยปนอังกฤษ (technical terms เป็นภาษาอังกฤษ)
-- ใส่ status macro: 🟢 Active
+- ใส่ status: 🟢 Active

@@ -1,14 +1,16 @@
 ---
-description: สร้าง How-to Guide สำหรับทีมบน Confluence
+description: "/howto" — สร้าง How-to Guide สำหรับทีมบน Confluence
 agent: สร้าง step-by-step How-to Guide บน Confluence สำหรับทีม ครอบคลุมการติดตั้ง MCP Server, authentication และตัวอย่าง prompt
 tools:
   - mcp_atlassian-mcp_createConfluencePage
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate How-to Guide
+# `/howto` — Generate How-to Guide
 
 สร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"How to Use Rovo MCP with VS Code"** เป็น step-by-step guide สำหรับทีม
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## เนื้อหาที่ต้องมี
 
@@ -46,7 +48,8 @@ tools:
 
 ## Format
 
+- **ใช้ Markdown เท่านั้น** — numbered lists, code blocks (` ``` `), blockquotes (`>`)
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - เขียนเป็น numbered steps ชัดเจน
-- ใส่ screenshots placeholders (ถ้าเป็นไปได้)
-- ใส่ info/warning boxes สำหรับข้อควรระวัง
+- ใส่ blockquotes สำหรับข้อควรระวัง (`> ⚠️ ...`)
 - เขียนเป็นภาษาไทย ใช้ technical terms ภาษาอังกฤษ

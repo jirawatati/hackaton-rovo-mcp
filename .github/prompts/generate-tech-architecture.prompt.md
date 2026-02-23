@@ -1,14 +1,16 @@
 ---
-description: สร้างหน้า Technical Architecture & Configuration บน Confluence
+description: "/architecture" — สร้างหน้า Technical Architecture & Configuration บน Confluence
 agent: อ่าน config และ instruction files แล้วสร้างหน้า Technical Architecture & Configuration บน Confluence อธิบาย MCP Server, Auth flow, Space scope และ CQL filters
 tools:
   - mcp_atlassian-mcp_createConfluencePage
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate Technical Architecture Doc
+# `/architecture` — Generate Technical Architecture Doc
 
 อ่านไฟล์ `.vscode/mcp.json` และ `.github/instructions/` ทั้งหมดในโปรเจกต์นี้ แล้วสร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Technical Architecture & Configuration"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## เนื้อหาที่ต้องมี
 
@@ -36,6 +38,8 @@ tools:
 
 ## Format
 
+- **ใช้ Markdown เท่านั้น** — tables, code blocks (` ``` `), headings (`#`)
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - ใช้ tables สำหรับข้อมูลที่เป็นโครงสร้าง
 - ใส่ code blocks สำหรับ config และ CQL
 - เขียนเป็นภาษาไทยปนอังกฤษ

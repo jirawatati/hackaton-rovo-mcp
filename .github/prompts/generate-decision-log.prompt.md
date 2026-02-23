@@ -1,14 +1,16 @@
 ---
-description: สร้าง Decision Log template พร้อมตัวอย่างบน Confluence
+description: "/decisions" — สร้าง Decision Log template พร้อมตัวอย่างบน Confluence
 agent: สร้างหน้า Decision Log บน Confluence เป็นตาราง template พร้อมตัวอย่าง 3 entries เกี่ยวกับการตัดสินใจใช้ Rovo MCP และ scope personal space
 tools:
   - mcp_atlassian-mcp_createConfluencePage
   - mcp_atlassian-mcp_searchConfluenceUsingCql
 ---
 
-# Generate Decision Log
+# `/decisions` — Generate Decision Log
 
 สร้างหน้า Confluence ใน **personal space** (space key: `~712020dbde0c9560d0470a8ae25673a252dcde`) ชื่อ **"Hackathon Decision Log"**
+
+> **⚠️ Mandatory:** เมื่อสร้างหรืออัพเดทหน้า Confluence ต้องใช้ `contentFormat: "markdown"` เสมอ และเขียน body เป็น **Markdown** เท่านั้น ห้ามใช้ HTML หรือ Confluence storage format (XHTML)
 
 ## รูปแบบ
 
@@ -39,6 +41,8 @@ tools:
 
 ## Format
 
+- **ใช้ Markdown เท่านั้น** — Markdown tables (`| col |`), headings, bold
+- ต้องส่ง `contentFormat: "markdown"` ทุกครั้งที่เรียก `createConfluencePage` หรือ `updateConfluencePage`
 - ใช้ตารางเป็นหลัก
 - ใส่ status badges: ✅ Decided, 🔄 Under Review, ❌ Rejected
 - เขียนภาษาไทย
